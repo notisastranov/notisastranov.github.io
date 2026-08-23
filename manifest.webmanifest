@@ -1,0 +1,29 @@
+{
+  "id": "/",
+  "name": "Astranov SpaceNet",
+  "short_name": "SpaceNet",
+  "description": "The OS of the SpaceX phone. Earth is the desktop. Starlink is the radio. Grok is the mind.",
+  "start_url": "/?os=spacex",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#000105",
+  "theme_color": "#000105",
+  "categories": ["navigation", "social", "utilities", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "handle_links": "preferred",
+  "launch_handler": { "client_mode": ["focus-existing", "auto"] },
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Locate", "short_name": "Locate", "url": "/?cmd=locate", "description": "Pin you on Earth" },
+    { "name": "Call", "short_name": "Call", "url": "/?cmd=call", "description": "SpaceNet call as an ARC" },
+    { "name": "Order", "short_name": "Order", "url": "/?cmd=pizza", "description": "One-word delivery" }
+  ],
+  "prefer_related_applications": false
+}

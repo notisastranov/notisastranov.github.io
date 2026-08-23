@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="skin-astranov theme-dark" data-theme-mode="auto">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Astranov SpaceNet Operating System</title>
+<meta name="theme-color" content="#000105" id="meta-theme-color" />
+<meta name="astranov-build" content="20260824004000-place-public" />
+<meta name="astranov-continuity" content="20260824004000-place-public" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta name="description" content="Astranov SpaceNet — delivery on the globe. Power on · locate · marina · polygons · pay." />
+<link rel="icon" href="/icon.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+<style id="sn-trivial-law">
+#sn-topchrome-drag, #cli-drag {
+  height: 10px !important; min-height: 10px !important; max-height: 10px !important;
+  padding: 0 !important; margin: 0 !important;
+}
+#sn-topchrome-drag::after, #cli-drag::after { content: none !important; display: none !important; }
+#panel, #sn-topchrome-panel { min-height: 0 !important; height: auto !important; }
+#panel { grid-template-rows: 10px 48px auto 0 auto !important; overflow: visible !important; }
+</style>
+<style>
+:root{--bg:#000105;--text:#e8eeff;--glow:#14c3f3;--panel:rgba(4,16,42,0.78);--border:rgba(50,140,255,0.42);--font-ui:Inter,system-ui,sans-serif;--font-display:Space Grotesk,system-ui,sans-serif;--font-mono:JetBrains Mono,ui-monospace,monospace;--r:24px}
+html,body{margin:0;height:100%;min-height:100dvh;background:var(--bg);color:var(--text);font:500 14px/1.45 var(--font-ui);overflow:hidden;-webkit-font-smoothing:antialiased;touch-action:manipulation}
+#boot{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center}
+#boot.hide{opacity:0!important;pointer-events:none!important;visibility:hidden!important;display:none!important}
+#globe{position:fixed;inset:0;z-index:1}
+#sn-topchrome{position:fixed;top:0;left:0;right:0;z-index:95;display:flex;justify-content:center;padding:calc(8px + env(safe-area-inset-top,0px)) 12px 0;pointer-events:none}
+#sn-topchrome-panel{pointer-events:auto;width:min(720px,100%);background:var(--panel);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(16px)}
+#sn-topchrome-drag,#cli-drag{height:10px!important;min-height:10px!important;max-height:10px!important;padding:0!important;margin:0!important;display:flex;align-items:center;justify-content:center;cursor:ns-resize}
+#sn-topchrome-drag::before,#cli-drag::before{content:"";width:36px;height:3px;border-radius:999px;background:rgba(20,195,243,0.55)}
+#sn-topchrome-drag::after,#cli-drag::after{content:none!important;display:none!important}
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:100;display:flex;justify-content:center;padding:0 10px calc(10px + env(safe-area-inset-bottom,0px));pointer-events:none}
+#panel{pointer-events:auto;width:min(720px,100%);background:rgba(4,16,42,0.82);border:1px solid var(--border);border-radius:var(--r);display:grid;grid-template-rows:10px 48px auto 0 auto;overflow:visible;backdrop-filter:blur(16px)}
+.sn-cli-field{display:flex!important;align-items:center!important;gap:8px!important;width:100%!important;min-height:36px!important;padding:0 10px!important;background:rgba(0,10,28,0.82)!important;border:1px solid rgba(20,195,243,0.5)!important;border-radius:12px!important}
+#cli-in,#stc-cmd-in{background:transparent!important;border:0!important;color:#d4ecff;font:500 14px/1.3 var(--font-mono);width:100%;outline:none}
+#cli-in::placeholder,#stc-cmd-in::placeholder{color:#6a8ab8;opacity:0.7}
+#cli-coach{padding:4px 14px 6px;font:600 11px/1.35 var(--font-ui);color:#8ab4d4}
+#sn-task-ribbon{display:flex;gap:4px;padding:4px 10px;min-height:48px;align-items:center;overflow-x:auto}
+.sn-rib-btn{flex:0 0 auto;min-width:36px;height:36px;padding:0 10px;border-radius:999px;border:1px solid rgba(50,140,255,0.35);background:rgba(6,13,28,0.9);color:#c8dcff;font:600 11px/1 var(--font-ui)}
+.sn-cli-star{color:#14c3f3;text-shadow:0 0 10px #14c3f3}
+#stc-compact{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:8px 12px;min-height:64px}
+#field-radar{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(20,195,243,0.25),#060d1c)}
+#btn-home{font:800 15px/1.1 var(--font-display);letter-spacing:0.28em;color:#14c3f3;background:transparent;border:0}
+#field-balance-hud{padding:6px 12px;border-radius:16px;border:1px solid var(--border)}
+#sn-task-launch{width:48px;height:48px;border-radius:50%;border:0;background:radial-gradient(circle at 35% 30%,rgba(20,195,243,0.35),#060d1c)}
+</style>
+</head>
+<body>
+<div id="boot" aria-label="ASTRANOV loading" aria-busy="true">
+  <div style="text-align:center">
+    <span style="font:800 20px/1 Space Grotesk,system-ui,sans-serif;letter-spacing:0.36em;color:#14c3f3">ASTRANOV</span>
+    <div style="width:148px;height:5px;margin:22px auto 0;border-radius:999px;overflow:hidden;background:rgba(20,195,243,0.15)"><span style="display:block;height:100%;width:40%;background:linear-gradient(90deg,#14c3f3,#7ee9ff)"></span></div>
+  </div>
+</div>
+<div id="globe" aria-label="Earth"></div>
+<div id="city-map" aria-hidden="true"></div>
+<div id="sn-topchrome" aria-label="Top scroll">
+  <div id="sn-topchrome-panel" class="collapsed" role="region" aria-label="Top scroll">
+    <div id="stc-body">
+      <div id="stc-compact">
+        <div class="stc-col-radar"><div id="field-radar"></div></div>
+        <div class="stc-col-device" style="text-align:center"><button type="button" id="btn-home">ASTRANOV</button></div>
+        <div class="stc-col-money" style="display:flex;align-items:center;gap:10px;justify-content:flex-end">
+          <div id="field-balance-hud"><span id="fbh-s">⭐ 0.00</span></div>
+          <button type="button" id="sn-task-launch" class="mode-standby" aria-label="Task launcher"></button>
+        </div>
+      </div>
+    </div>
+    <form id="stc-cmd" autocomplete="off" aria-label="Flight command">
+      <label class="sn-cli-field">
+        <span class="sn-cli-star" aria-hidden="true">★</span>
+        <input id="stc-cmd-in" type="text" autocomplete="off" spellcheck="false"
+          placeholder="Heads up display command line interface"
+          aria-label="Heads up display command line interface" />
+      </label>
+    </form>
+    <div id="sn-topchrome-drag" title="Drag to expand" aria-label="Top scroll handle"></div>
+  </div>
+</div>
+<div id="dock">
+  <div id="panel" class="collapsed">
+    <div id="cli-drag" title="Drag to expand CLI" aria-label="CLI handle"></div>
+    <div id="sn-task-ribbon" aria-label="Quick actions">
+      <button type="button" class="sn-rib-btn" data-act="locate" id="sn-rib-locate">📍 Locate</button>
+      <button type="button" class="sn-rib-btn" data-act="polygon" id="sn-rib-poly">🔶 Poly</button>
+      <button type="button" class="sn-rib-btn" data-act="user" id="sn-rib-user">👤 Login</button>
+      <button type="button" class="sn-rib-btn" data-act="call" id="sn-rib-call">📞 Call</button>
+      <button type="button" class="sn-rib-btn" data-act="add" id="sn-rib-add">➕ Add</button>
+      <button type="button" class="sn-rib-btn" data-act="layers" id="sn-rib-layers">🗺️ Layers</button>
+      <button type="button" class="sn-rib-btn" data-act="handsfree" id="sn-rib-hf">🎤 AI</button>
+      <button type="button" class="sn-rib-btn" data-act="send" id="sn-rib-send">📤 Send</button>
+    </div>
+    <div id="cli-coach" aria-hidden="true">
+      <div>1 · Locate &nbsp; 2 · Sign in &nbsp; 3 · Talk</div>
+      <div>Type a HUD command to show, hide, or reshape</div>
+    </div>
+    <div id="cli-log" aria-live="polite"></div>
+    <form id="cli-form" autocomplete="off">
+      <label class="sn-cli-field">
+        <span class="sn-cli-star" aria-hidden="true">★</span>
+        <input id="cli-in" type="text" autocomplete="off" spellcheck="false"
+          placeholder="command line interface"
+          aria-label="command line interface" />
+      </label>
+    </form>
+  </div>
+</div>
+<script src="/js/spacenet/chrome-mute.js?v=20260824004500-place-names"></script>
+<script src="/js/spacenet/chrome-fix.js?v=20260819220000-chrome-alive"></script>
+<script src="/js/spacenet/chrome-radar.js?v=20260819220000-chrome-alive"></script>
+<script src="/js/spacenet/os-bootloader.js?v=20260819220000-chrome-alive"></script>
+<script src="/js/spacenet/guardian.js?v=20260819220000-chrome-alive"></script>
+</body>
+</html>

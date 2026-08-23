@@ -1,0 +1,103 @@
+v>
+      <div id="sr-actions">
+        <button id="sr-mic-btn" type="button">① Enable Mic</button>
+        <button id="sr-join-btn" type="button">② Join Channel</button>
+      </div>
+      <div id="sr-vu-wrap"><div id="sr-vu"></div></div>
+      <div id="sr-status">Tap 📡 then follow steps 1 → 2 → 3</div>
+      <button id="sr-ptt" type="button">③ HOLD PTT — REAL TRANSMIT</button>
+    </div>
+    <div id="node-batch">
+      <div class="nb-row"><span><strong>🔗 Work together</strong> · Astranov node</span><button id="nb-close" type="button">✖️</button></div>
+      <div style="color:#9cb;font-size:10px;margin-bottom:8px">Εγκατάστησε native/PWA node — decentralized server + comms applet. Μετά batch για δουλειά μαζί.</div>
+      <div id="nb-platform" style="margin-bottom:6px;color:var(--ax-blue-bright)"></div>
+      <div class="nb-step nb-active" id="nb-step-1"><span class="nb-n">1</span><span class="nb-step-msg">Sign in (G)</span></div>
+      <div class="nb-step" id="nb-step-2"><span class="nb-n">2</span><span class="nb-step-msg">Install Astranov on device</span></div>
+      <div class="nb-step" id="nb-step-3"><span class="nb-n">3</span><span class="nb-step-msg">Launch batch</span></div>
+      <div id="nb-ios-steps">🍎 <strong>iOS:</strong> Safari → Share ⬆️ → <strong>Add to Home Screen</strong> ➕ → open Astranov icon</div>
+      <button id="nb-install-android" type="button">📲 Install Android / PWA node</button>
+      <button id="nb-install-ios" type="button" style="display:none;width:100%;margin:6px 0;padding:10px;border-radius:12px;background:rgba(40,40,60,0.5);border:1px solid #88a;color:#cdf;cursor:pointer;font-weight:600">🍎 iOS install steps</button>
+      <button id="nb-launch" type="button">🔗 Launch batch · work together</button>
+      <div id="nb-mesh-viz" aria-hidden="true"></div>
+      <div style="margin:8px 0;font-size:10px;color:var(--an-muted)">Session: <b id="nb-batch-id" style="color:var(--ax-blue-bright)">Astranov</b> · Devices: <b id="nb-peers" style="color:var(--ax-blue-bright)">0</b> · <span id="nb-mesh-status" style="color:var(--ax-green-bright)">idle</span></div>
+      <button id="nb-join-comms" type="button">📡 Open comms channel (PMR/WebRTC)</button>
+      <div id="nb-status" style="color:#9cb;font-size:10px;margin-top:6px">Install node to work together without browser babysitting</div>
+    </div>
+    <div id="globe-super-add">
+      <div class="sa-head">
+        <span>Super Add · post on globe</span>
+        <button id="sa-close" type="button">✖</button>
+      </div>
+      <div id="sa-preview-wrap">
+        <video id="sa-preview" playsinline autoplay muted></video>
+        <video id="sa-playback" playsinline controls></video>
+      </div>
+      <div id="sa-status">Tap + on globe · record · choose channel</div>
+      <div id="sa-controls">
+        <button id="sa-flip" type="button">🔄 Flip</button>
+        <button id="sa-record" type="button">● Record</button>
+        <button id="sa-post" type="button">➕ Post</button>
+      </div>
+      <label for="sa-channel">Post to</label>
+      <select id="sa-channel">
+        <option value="global">Global channel</option>
+        <option value="team" id="sa-channel-team">Team / batch</option>
+        <option value="local">Local · near me</option>
+        <option value="custom">Type channel…</option>
+      </select>
+      <input id="sa-channel-custom" type="text" placeholder="e.g. rhodes-team · my-circle" />
+      <input id="sa-caption" type="text" placeholder="Caption or what you found on the map" />
+      <div class="sa-checks">
+        <label><input id="sa-as-map" type="checkbox" checked /> Pin on map where I am</label>
+        <label><input id="sa-as-vendor" type="checkbox" /> Add me as vendor (shop on map)</label>
+        <input id="sa-vendor-name" type="text" placeholder="Shop name (if vendor)" />
+        <label><input id="sa-as-driver" type="checkbox" /> Add me as delivery driver</label>
+        <label><input id="sa-as-booker" type="checkbox" /> Create Astranov Site (yourname.astranov.eu)</label>
+        <input id="sa-booker-slug" type="text" placeholder="Subdomain e.g. marina-diving" style="display:none" />
+        <input id="sa-booker-name" type="text" placeholder="Business / profile name" style="display:none" />
+      </div>
+    </div>
+    <div id="globe-youtube">
+      <div class="yt-head">
+        <span id="yt-now-title">YouTube on globe</span>
+        <button id="yt-open-ext" type="button">Open ↗</button>
+        <button id="yt-close" type="button">✖</button>
+      </div>
+      <div id="yt-player-wrap"><iframe id="yt-frame" title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div id="yt-hint">CLI: youtube mars doc · play 2 · space locate ISS · brain places on globe</div>
+      <div id="yt-results"></div>
+    </div>
+    <div id="vendor-menu">
+      <div id="vm-header"><span id="vm-title">Καταστήματα</span><button id="vm-close" type="button">✖️</button></div>
+      <div id="vm-body"><div id="vm-list"></div><div id="vm-detail" style="display:none"><button id="vm-back" type="button">← όλα τα καταστήματα</button><div id="vm-empty" style="display:none"></div><div id="vm-items"></div><div id="vm-drivers-pick" class="vm-drivers-pick" style="display:none"></div><button id="vm-request" type="button" style="display:none">Ζήτησε μενού από κατάστημα</button><button id="vm-place" type="button">Παραγγελία</button></div><div id="vm-compare" style="display:none"><button id="vm-compare-back" type="button">← όλα τα καταστήματα</button><div id="vm-wanted"></div><div id="vm-matches"></div><div id="vm-drivers"></div><div id="vm-pricing" class="vm-pricing" style="display:none"></div><div id="vm-balance"></div><button id="vm-wallet-pay" type="button" style="display:none">Google Wallet · Pay vendor</button><button id="vm-confirm-pay" type="button" style="display:none">Επιβεβαίωση &amp; Πληρωμή · Coins balance</button></div></div>
+    </div>
+        </div>
+      </div>
+      <div id="globe-deck-input-row">
+        <span id="aci-cli-prompt">›</span>
+        <form id="aci-cli-form" action="#" autocomplete="off">
+          <textarea id="aci-cli-in" name="cli" rows="1" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" inputmode="text" placeholder="Ask Astranov — type or tap 🎧 · Enter to send"></textarea>
+        </form>
+        <button id="globe-deck-send" class="deck-input-btn" type="submit" form="aci-cli-form" title="Send command">➡</button>
+      </div>
+    </div>
+    <input id="aci-input" placeholder="" style="display:none" />
+    <button id="aci-send" type="button" style="display:none" title="Send">➡️</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
