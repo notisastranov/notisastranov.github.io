@@ -1,7 +1,7 @@
-# ASTRANOV place-live guest preview
+# ASTRANOV place-earth guest preview
 
-Temporary GitHub Pages mirror of [PR #174](https://github.com/notisastranov/astranov.eu/pull/174) commit `c4dce896379d7cd716e2571b355070d7daacfc93` (Build `20260824010000-place-live`).
+Temporary GitHub Pages mirror for the ASTRANOV globe while Vercel Hobby cannot redeploy the [PR #174](https://github.com/notisastranov/astranov.eu/pull/174) alias (24h rate limit).
 
-Vercel Hobby hit `api-deployments-free-per-day`, so this host serves the same static `public/` output Vercel would serve at `/`.
+Build `20260824012000-place-earth`. SNGlobe adapter (`js/spacenet/chrome-snglobe-adapter.js`) defines `flyGlobeTo` and `SNGlobe.viewLatLng` (rendered camera) **before** nairobi/kalithea scripts load. Original `#130` / `#131` files stay 37083 / 43964 bytes. Do not merge #174 to main. Do not edit PRs #130 or #131.
 
-Not production. Do not treat as astranov.eu.
+Not production. Keep the SpaceNet boot.

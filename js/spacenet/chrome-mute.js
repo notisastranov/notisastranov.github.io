@@ -1,14 +1,14 @@
-/* Astranov mute · Build 20260824010000-place-live
- * PR #174 only. Do not merge. Does not edit #130/#131.
- * Guest / must serve the ASTRANOV globe (public/index.html is Vercel output).
- * loadChain requests LOCAL /js/spacenet/chrome-nairobi-ladder.js (37083)
- * and /js/spacenet/chrome-kalithea-village.js (43964) only.
- * No runtime GitHub fetch. Cache-bust 20260824010000-place-live.
+/* Astranov mute · Build 20260824012000-place-earth
+ * PR #174 Pages preview only. Do not merge. Does not edit #130/#131.
+ * Guest / must serve the ASTRANOV globe.
+ * loadChain: SNGlobe adapter FIRST so flyGlobeTo exists BEFORE
+ * chrome-nairobi-ladder.js (37083) and chrome-kalithea-village.js (43964).
+ * No runtime GitHub fetch. Cache-bust 20260824012000-place-earth.
  * pizza/laptop/HOLD/twin/listen/research unchanged.
  */
 (function (global) {
   'use strict';
-  var BUILD = '20260824010000-place-live';
+  var BUILD = '20260824012000-place-earth';
   global.__SN_MUTE_ALERTS = true;
   global.__SN_MUTE_BEEPS = true;
 
@@ -81,6 +81,7 @@
   }
 
   function loadChain() {
+    loadScript('/js/spacenet/chrome-snglobe-adapter.js', 'data-sn-snglobe-adapter');
     loadScript('/js/spacenet/chrome-cli-answer.js', 'data-sn-cli-answer');
     loadScript('/js/spacenet/chrome-guest-laptop-hunt.js', 'data-sn-guest-laptop');
     loadScript('/js/spacenet/chrome-research-stay.js', 'data-sn-research-stay');
